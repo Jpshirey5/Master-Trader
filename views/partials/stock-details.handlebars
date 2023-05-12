@@ -1,0 +1,56 @@
+<section>
+  <script src="
+https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js
+"></script>
+
+  <script>
+    (async function () {
+      const data = [
+        { price: 164, company_id: 'APPL' },
+        { price: 129, company_id: 'IBM' },
+        { price: 290, company_id: 'MSFT' },
+        { price: 186, company_id: 'TSLA' },
+        { price: 213, company_id: 'BA' },
+        { price: 127, company_id: 'NKE' },
+        { price: 102, company_id: 'AMZN' },
+        { price: 345, company_id: 'NFLX' },
+        { price: 149, company_id: 'WMT' },
+        { price: 12, company_id: 'F' },
+      ];
+
+      new Chart(
+        document.getElementById('acquisitions'),
+        {
+          type: 'bar',
+          data: {
+            labels: data.map(row => row.company_id),
+            datasets: [
+              {
+                label: 'Daily High Price',
+                data: data.map(row => row.price)
+              }
+            ]
+          }
+        }
+      );
+    })();</script>
+
+  <canvas id="acquisitions" class="mb-5"></canvas>
+
+</section>
+
+
+<section class="card">
+  {{!-- <a href="/gallery/{{id}}"> --}}
+    <header>
+      Company Name: {{name}}<br>
+      High Price: {{high_price}}<br>
+      Low Price: {{low_price}} <br>
+      company.description: {{company.description}} <br>
+      CE0: {{company.ceo}}<br>
+      Founded: {{company.founded}}<br>
+      Headquarters: {{company.headquarters}}
+    </header>
+    {{!--
+  </a> --}}
+</section>
